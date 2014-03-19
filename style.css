@@ -18,4 +18,37 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 */
 
+/* 
+  Globals 
+*/
+
 @import "globals/reset";
+
+/* 
+  Theme 
+*/
+
+/* Plugins @ Theme */
+
+/* @import "theme/plugins/"; */
+
+/* Templates @ Theme */
+
+@import "theme/templates/404";
+@import "theme/templates/archive";
+@import "theme/templates/comments";
+@import "theme/templates/content-none";
+@import "theme/templates/content-page";
+@import "theme/templates/content-single";
+@import "theme/templates/content";
+@import "theme/templates/footer";
+@import "theme/templates/header";
+@import "theme/templates/index";
+@import "theme/templates/page";
+@import "theme/templates/search";
+@import "theme/templates/sidebar";
+@import "theme/templates/single";
+
+/* Widgets @ Theme */
+
+/* @import "theme/widgets/"; */
