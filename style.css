@@ -19,10 +19,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
 /* 
-  Globals 
+  Globals (Order Dependent)
 */
 
 @import "globals/reset";
+@import "globals/mixins";
+@import "globals/colors";
+@import "globals/typography";
+@import "globals/layout";
 
 /* 
   Theme 
