@@ -57,4 +57,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* Widgets @ Theme */
 
+@import "theme/widgets/archives";
+@import "theme/widgets/calendar";
+@import "theme/widgets/categories";
+@import "theme/widgets/custom-menu";
+@import "theme/widgets/meta";
+@import "theme/widgets/pages";
+@import "theme/widgets/recent-comments";
+@import "theme/widgets/recent-posts";
+@import "theme/widgets/rss";
+@import "theme/widgets/search";
 @import "theme/widgets/tag-cloud";
+@import "theme/widgets/text";
+
