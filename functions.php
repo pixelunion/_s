@@ -103,7 +103,7 @@ function _s_styles() {
  	wp_add_inline_style( '_s-style', $custom_css );
 
 }
-add_action( 'wp_enque_scripts', '_s_styles' );
+add_action( 'wp_enqueue_scripts', '_s_styles' );
 
 function _s_scripts() {
 
