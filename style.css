@@ -57,6 +57,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 /* Widgets @ Theme */
 
+@import "theme/widgets/widgets-global";
 @import "theme/widgets/archives";
 @import "theme/widgets/calendar";
 @import "theme/widgets/categories";
