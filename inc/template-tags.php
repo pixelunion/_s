@@ -95,6 +95,68 @@ function _s_posted_on() {
 }
 endif;
 
+if ( ! function_exists( '_s_social_icons' ) ) {
+	/**
+	*	Social Icons - Prints list of social icons.
+	* This function is dependent on an icon font that can be generated using: http://fontcustom.com/.
+	*/
+	function _s_social_icons() {
+
+	  $social_icons = array(
+	    'bandcamp',
+	    'behance',
+	    'delicious',
+	    'deviantart',
+	    'digg',
+	    'dribbble',
+	    'etsy',
+	    'facebook',
+	    'flickr',
+	    'foursquare',
+	    'github',
+	    'google-plus',
+	    'instagram',
+	    'lastfm',
+	    'linkedin',
+	    'myspace',
+	    'pinboard',
+	    'pinterest',
+	    'rdio',
+	    'skype',
+	    'soundcloud',
+	    'spotify',
+	    'stumbleupon',
+	    'svpply',
+	    'twitter',
+	    'vimeo',
+	    'youtube',
+	    ); 
+
+	  	// Check if any icons are active before returning. 
+	 		$active = 0;	
+			foreach( $social_icons as $icon ) {
+				if ( get_theme_mod( $icon ) ) { $active++; }
+			}
+
+			// If any icons are active, print them to the page.
+			if ( $active > 0 ) {  ?>
+	      <div class="social-media">
+	        <ul class="social-icons">
+	        <?php foreach ( $social_icons as $icon ) {
+	          if ( get_theme_mod( $icon ) ) : ?>
+	            <li>
+	              <a class="social-icon" href="<? if ( $icon == 'skype' ) { ?>skype:<?php echo get_theme_mod( $icon ); ?>?userinfo<?php } else { ?><?php echo esc_url( get_theme_mod( $icon ) ); ?><?php } ?>" target="_blank">
+	                <i class="icon-_s-iconfont_<?php echo esc_html( $icon ); ?>"></i>
+	              </a>
+	            </li>
+	          <?php endif;
+	        } ?>
+	        </ul> <!-- end .social-icons -->
+	      </div> <!-- end .social-media -->
+			<?php	}
+	}
+}
+
 /**
  * Returns true if a blog has more than 1 category.
  */
