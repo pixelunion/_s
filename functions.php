@@ -158,3 +158,14 @@ require get_template_directory() . '/includes/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/includes/jetpack.php';
+
+if ( !is_wp_com() ) {
+
+	/**
+	* Load .org-only files.
+	*/
+
+	// PXU specific functions.
+	require get_template_directory() . '/includes/pxu.php';
+
+} // end !is_wp_com()
