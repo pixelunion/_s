@@ -53,12 +53,14 @@ function _s_setup() {
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
+	 * @link http://code.graygilmore.com/blog/using-wordpress-featured-image-post-thumbnail
 	 */
 	add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', '_s' ),
+		'social'  => __( 'Social', 's' )
 	) );
 
 	// Enable support for Post Formats.
@@ -104,19 +106,23 @@ function _s_styles() {
 	// Enqueue the theme's stylesheet.
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
 
-	// Setup any custom styles. 
-	$background = get_theme_mod( 'background_color' );
-	$accent     = get_theme_mod( '_s_accent_color' );
+	if ( !is_wp_com() ) {
+	
+		// Setup any custom styles. 
+		$background = get_theme_mod( 'background_color' );
+		$accent     = get_theme_mod( '_s_accent_color' );
 
-	$custom_css = "
+		$custom_css = "
 
-		/* 
-			Declare any custom CSS here. Make sure to use string interpoplation
-			to access any variables declared above e.g. {$accent}.
-		*/
+			/* 
+				Declare any custom CSS here. Make sure to use string interpolation
+				to access any variables declared above e.g. {$accent}.
+			*/
 
-	"; // end $custom_css 
- 	wp_add_inline_style( '_s-style', $custom_css );
+		"; // end $custom_css 
+	 	wp_add_inline_style( '_s-style', $custom_css );
+
+ } // end !is_wp_com()
 
 }
 add_action( 'wp_enqueue_scripts', '_s_styles' );
