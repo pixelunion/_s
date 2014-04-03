@@ -60,7 +60,7 @@ function _s_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', '_s' ),
-		'social'  => __( 'Social', 's' )
+		'social'  => __( 'Social', '_s' )
 	) );
 
 	// Enable support for Post Formats.
