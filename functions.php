@@ -12,6 +12,22 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
+if ( ! function_exists( 'is_wp_com' ) ) :
+/**
+* Check if we're on WordPress.com hosted blog.
+* Looks at meta tags of current site to see if the generator meta tag
+* is set to "WordPress.com".
+*/
+function is_wp_com() {
+  $server = $_SERVER[ 'DOCUMENT_ROOT' ];
+  if ( true == strpos( $server, 'wpcom' ) ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+endif;
+
 if ( ! function_exists( '_s_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
