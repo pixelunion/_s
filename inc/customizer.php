@@ -22,7 +22,7 @@ function _s_customize_register( $wp_customize ) {
 
   // ORG only customization options 
 
-  if ( !is_wp_com() ) {
+  if ( defined( 'IS_WPCOM' ) && ! IS_WPCOM ) {
 
     // Accent Color
 

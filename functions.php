@@ -12,22 +12,6 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 640; /* pixels */
 }
 
-if ( ! function_exists( 'is_wp_com' ) ) :
-/**
-* Check if we're on WordPress.com hosted blog.
-* Looks at meta tags of current site to see if the generator meta tag
-* is set to "WordPress.com".
-*/
-function is_wp_com() {
-  $server = $_SERVER[ 'DOCUMENT_ROOT' ];
-  if ( true == strpos( $server, 'wpcom' ) ) {
-    return true;
-  } else {
-    return false;
-  }
-}
-endif;
-
 if ( ! function_exists( '_s_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -106,7 +90,7 @@ function _s_styles() {
 	// Enqueue the theme's stylesheet.
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
 
-	if ( !is_wp_com() ) {
+	if ( defined( 'IS_WPCOM' ) && ! IS_WPCOM ) {
 	
 		// Setup any custom styles. 
 		$background = get_theme_mod( 'background_color' );
@@ -122,7 +106,7 @@ function _s_styles() {
 		"; // end $custom_css 
 	 	wp_add_inline_style( '_s-style', $custom_css );
 
- } // end !is_wp_com()
+ } // end defined( 'IS_WPCOM' ) && ! IS_WPCOM
 
 }
 add_action( 'wp_enqueue_scripts', '_s_styles' );
@@ -159,7 +143,17 @@ require get_template_directory() . '/includes/customizer.php';
  */
 require get_template_directory() . '/includes/jetpack.php';
 
-if ( !is_wp_com() ) {
+if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
+
+	/**
+	* Load .com-only files.
+	*/
+
+	require get_template_directory() . '/includes/wpcom.php';
+
+} // end defined( 'IS_WPCOM' ) && ! IS_WPCOM 
+
+if ( defined( 'IS_WPCOM' ) && ! IS_WPCOM ) {
 
 	/**
 	* Load .org-only files.
@@ -168,4 +162,4 @@ if ( !is_wp_com() ) {
 	// PXU specific functions.
 	require get_template_directory() . '/includes/pxu.php';
 
-} // end !is_wp_com()
+} // end ( defined( 'IS_WPCOM' ) && ! IS_WPCOM )
