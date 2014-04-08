@@ -138,17 +138,14 @@ require get_template_directory() . '/includes/extras.php';
  */
 require get_template_directory() . '/includes/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/includes/jetpack.php';
-
 if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
 
 	/**
 	* Load .com-only files.
 	*/
 
+	require get_template_directory() . '/includes/custom-header.php';
+	require get_template_directory() . '/includes/jetpack.php';
 	require get_template_directory() . '/includes/wpcom.php';
 
 } // end defined( 'IS_WPCOM' ) && ! IS_WPCOM 
