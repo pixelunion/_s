@@ -6,6 +6,13 @@
  */
 
 /**
+* Check if we're on .org or .com.
+*/
+
+$wpcom = defined( 'IS_WPCOM' );
+$iscom = IS_WPCOM;
+
+/**
  * Set the content width based on the theme's design and stylesheet.
  */
 if ( ! isset( $content_width ) ) {
@@ -90,9 +97,6 @@ function _s_styles() {
 	// Enqueue the theme's stylesheet.
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
 
-  $wpcom = defined( 'IS_WPCOM' );
-  $iscom = IS_WPCOM;
-
   if ( ! $wpcom && ! $iscom ) {
 
 		// Setup any custom styles.
@@ -141,7 +145,7 @@ require get_template_directory() . '/includes/extras.php';
  */
 require get_template_directory() . '/includes/customizer.php';
 
-if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
+if ( $wpcom && $iscom ) {
 
 	/**
 	* Load .com-only files.
@@ -153,7 +157,7 @@ if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
 
 } // end defined( 'IS_WPCOM' ) && ! IS_WPCOM
 
-if ( defined( 'IS_WPCOM' ) && ! IS_WPCOM ) {
+if ( ! $wpcom && ! $iscom ) {
 
 	/**
 	* Load .org-only files.
