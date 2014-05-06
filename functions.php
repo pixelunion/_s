@@ -86,27 +86,30 @@ add_action( 'widgets_init', '_s_widgets_init' );
  * Enqueue scripts and styles.
  */
 function _s_styles() {
-	
+
 	// Enqueue the theme's stylesheet.
 	wp_enqueue_style( '_s-style', get_stylesheet_uri() );
 
-	if ( defined( 'IS_WPCOM' ) && ! IS_WPCOM ) {
-	
-		// Setup any custom styles. 
+  $wpcom = defined( 'IS_WPCOM' );
+  $iscom = IS_WPCOM;
+
+  if ( ! $wpcom && ! $iscom ) {
+
+		// Setup any custom styles.
 		$background = get_theme_mod( 'background_color' );
 		$accent     = get_theme_mod( '_s_accent_color' );
 
 		$custom_css = "
 
-			/* 
+			/*
 				Declare any custom CSS here. Make sure to use string interpolation
 				to access any variables declared above e.g. {$accent}.
 			*/
 
-		"; // end $custom_css 
+		"; // end $custom_css
 	 	wp_add_inline_style( '_s-style', $custom_css );
 
- } // end defined( 'IS_WPCOM' ) && ! IS_WPCOM
+  } // end ! $wpcom && ! $iscom
 
 }
 add_action( 'wp_enqueue_scripts', '_s_styles' );
@@ -148,7 +151,7 @@ if ( defined( 'IS_WPCOM' ) && IS_WPCOM ) {
 	require get_template_directory() . '/includes/jetpack.php';
 	require get_template_directory() . '/includes/wpcom.php';
 
-} // end defined( 'IS_WPCOM' ) && ! IS_WPCOM 
+} // end defined( 'IS_WPCOM' ) && ! IS_WPCOM
 
 if ( defined( 'IS_WPCOM' ) && ! IS_WPCOM ) {
 
