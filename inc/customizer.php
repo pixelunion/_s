@@ -20,9 +20,9 @@ function _s_customize_register( $wp_customize ) {
   * Theme-Specific Customize Settings
   */
 
-  // ORG only customization options 
+  // ORG only customization options
 
-  if ( defined( 'IS_WPCOM' ) && ! IS_WPCOM ) {
+  if ( ! _s_is_wpcom() ) {
 
     // Accent Color
 
@@ -54,8 +54,8 @@ function _s_customize_register( $wp_customize ) {
       'section'  => '_s_custom_logo',
       'settings' => '_s_upload_logo'
     ) ) );
-  
-  } // end !is_wp_com()
+
+  }
 
 }
 add_action( 'customize_register', '_s_customize_register' );
