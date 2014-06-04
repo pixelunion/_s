@@ -3,7 +3,7 @@ Theme Name: _s
 Theme URI: http://pixelunion.net
 Author: Pixel Union
 Author URI: http://pixelunion.net
-Description: 
+Description:
 Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -18,20 +18,20 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 */
 
-/* 
+/*
   Globals (Order Dependent)
 */
 
 @import "globals/reset";
-@import "globals/mixins";
+@import "globals/lib";
 @import "globals/colours";
 @import "globals/typography";
 @import "globals/layout";
 @import "globals/content";
 @import "globals/forms";
 
-/* 
-  Theme 
+/*
+  Theme
 */
 
 /* Plugins @ Theme */
